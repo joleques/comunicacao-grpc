@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+service ProductService {
+    rpc List (Empty) returns (ProductList) {};
+    rpc Save (Product) returns Product {};
+}
+
+message Empty {}
+
+message Product {
+   string id = 1;
+   string description = 2;
+   string value = 3;
+}
+
+message ProductList {
+   repeated Note products = 1;
+}
