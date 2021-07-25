@@ -1,25 +1,38 @@
-const PROTO_PATH = '../../infra/protobuf/produto.proto'
-                   
-const grpc = require('grpc')
+import 'dotenv/config';
+import * as grpc from 'grpc';
+import { ProductHandler } from './handlers/ProductHandler';
+import { ProductServiceService } from '../../infra/protobuf/produto_grpc_pb';
+import {  Product } from '../../infra/protobuf/produto_pb'
+import DataBase from './handlers/DataBase';
 
-const port = process.env.PORT || 8080;
+const port: string | number = process.env.PORT || 50051;
 
-const productsProto = grpc.load({root: __dirname, file: PROTO_PATH})
+type StartServerType = () => void;
+export const startServer: StartServerType = (): void => {
+    // create a new gRPC server
+    const server: grpc.Server = new grpc.Server();
 
-const notes = [
-    { id: '1', description: 'Note 1', value: 'Content 1' },
-    { id: '2', description: 'Note 2', value: 'Content 2' }
-]
+    const dataBase: DataBase = new DataBase();
+    const productHandler: ProductHandler = new ProductHandler(dataBase);
 
-const server = new grpc.Server();
+    // register all the handler here...
+    server.addService(ProductServiceService, productHandler);
 
-server.addService(productsProto.ProductService.service, {
-    list: (_, callback) => {
-        callback(null, notes)
-    },
-})
+    // define the host/port for server
+    server.bindAsync(
+        `0.0.0.0:${ port }`,
+        grpc.ServerCredentials.createInsecure(),
+        (err: Error, port: number) => {
+            if (err != null) {
+                return console.error(err);
+            }
+            console.log(`gRPC listening on ${ port }`);
+        },
+    );
+
+    // start the gRPC server
+    server.start();
+};
 
 
-server.bind('127.0.0.1:50051', grpc.ServerCredentials.createInsecure())
-console.log('Server running at http://127.0.0.1:50051')
-server.start()
+startServer();

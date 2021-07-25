@@ -1,10 +1,5 @@
 syntax = "proto3";
 
-service ProductService {
-    rpc List (Empty) returns (ProductList) {};
-    rpc Save (Product) returns (Product) {};
-}
-
 message Empty {}
 
 message Product {
@@ -15,4 +10,14 @@ message Product {
 
 message ProductList {
    repeated Product products = 1;
+}
+
+message ProductRequest{
+   string id = 1;
+}
+
+service ProductService {
+    rpc List (Empty) returns (ProductList) {};
+    rpc Save (Product) returns (Product) {};
+    rpc getProduct(ProductRequest) returns (Product){};
 }

@@ -1,9 +1,9 @@
-POST http://localhost:8080/node/criar-produtos HTTP/1.1
+POST http://localhost:8080/node/produto HTTP/1.1
 content-type: application/json
 
 {
-    "name": "sample",
-    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+    "description": "Cebola",
+    "value": "R$ 4,00"
 }
 
 ###
@@ -11,3 +11,8 @@ GET http://localhost:8080/node/buscar-produtos HTTP/1.1
 content-type: application/json
 
 {}
+
+
+###
+GET http://localhost:8080/node/produto/3 HTTP/1.1
+content-type: application/json
