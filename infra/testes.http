@@ -2,8 +2,8 @@ POST http://localhost:8080/node/produto HTTP/1.1
 content-type: application/json
 
 {
-    "description": "Cebola",
-    "value": "R$ 4,00"
+    "description": "Cenoura",
+    "value": "R$ 6,00"
 }
 
 ###
