@@ -11,7 +11,7 @@ GRPC_TOOLS_NODE_PROTOC="./node_modules/.bin/grpc_tools_node_protoc"
 #./src/proto/*
 for f in ./../*; do
 
-echo "$(basename "$f")";
+#echo "$(basename "$f")";
   # skip the non proto files
   if [ "$(basename "$f")" == "scripts-node" ]; then
       continue

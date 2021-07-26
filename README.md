@@ -31,7 +31,39 @@ Foi desenvolvido duas POCS, uma em Typescript (client e server) em outra em Java
 
 ### Typescript
 
+#### Detalhes de Implementação
 
+Quando trabalhamos com gRPC temos um arquivo .proto, que nada mais é do que o contrato que iremos usar na comunicação entre os microservices.
+
+Como essa POC é em Typescript precisamos ter arquivos .ts e .js para que possamos usar as definições do contrato (arquivo .proto), para isso é necessario realizar os passos abaixo.
+
+- Passo 1: No diretório /infra/scripts-node rodar no terminal comando
+```
+node install
+```
+- Passo 2: No diretório /infra/scripts-node rodar no terminal comando
+```
+./protoc.sh 
+```
+
+Com esses comandos podemos notar que no diretório /infra/protobuf foi gerado alguns arquivos .ts e .js.
+
+Após feito isso voltar para raiz do projetos (client e server) e rodar para instalar as dependências: 
+```
+node install
+```
+
+#### Ponto Importante: 
+- Sempre que for gerado um novo metodo no serviço do protobuf esse script tem que ser rodado, porque somente assim os arquivos (.ts e .js) serão atualizados.
+
+### Java
+
+Em desenvolvimento
+
+
+## Observações
+
+- O arquivo .proto está na infra para que possa ser usado tantos pelos clientes quanto pelos servers. Pois assim validamos o contrato definido entre os clientes e servidores. Em caso de uso em produção, provavelmente ele estaria em um repositório separado.
 
 ## Referências ##
 
