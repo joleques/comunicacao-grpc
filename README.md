@@ -45,7 +45,6 @@ npm install
 ```
 ./protoc.sh
 ```
-```
 - Passo 3: No diretório /service-node-client rodar no terminal comando
 ```
 npm install
@@ -57,15 +56,16 @@ npm install
 npm run watch
 ```
 
-Com esses comandos podemos notar que no diretório /infra/protobuf foi gerado alguns arquivos .ts e .js.
+- Passo 5: Para testar pelo VSCode pode instalar a extensão [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) e usar o arquivo /infra/teste.http
 
-Após feito isso voltar para raiz do projetos (client e server) e rodar para instalar as dependências: 
-```
-node install
-```
+
 
 #### Ponto Importante: 
+
+- Com esses comandos podemos notar que no diretório /infra/protobuf foi gerado alguns arquivos .ts e .js.
+
 - Sempre que for gerado um novo metodo no serviço do protobuf esse script tem que ser rodado, porque somente assim os arquivos (.ts e .js) serão atualizados.
+
 
 ### Java
 

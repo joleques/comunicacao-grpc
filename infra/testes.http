@@ -1,12 +1,14 @@
+// criar uma produto na API
 POST http://localhost:8080/node/produto HTTP/1.1
 content-type: application/json
 
 {
-    "description": "Cenoura",
-    "value": "R$ 6,00"
+    "description": "Tomate",
+    "value": "R$ 7,00"
 }
 
 ###
+// busca tds os produtos da API
 GET http://localhost:8080/node/buscar-produtos HTTP/1.1
 content-type: application/json
 
@@ -14,5 +16,6 @@ content-type: application/json
 
 
 ###
-GET http://localhost:8080/node/produto/3 HTTP/1.1
+// busca um produto da API, passando o id
+GET http://localhost:8080/node/produto/2 HTTP/1.1
 content-type: application/json
