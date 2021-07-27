@@ -56,7 +56,7 @@ npm install
 npm run watch
 ```
 
-- Passo 5: Para testar pelo VSCode pode instalar a extensão [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) e usar o arquivo /infra/teste.http
+- Passo 5: No /infra/teste.http tem a possibilidades de uso da api. Para testar pelo VSCode pode instalar a extensão [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) e usar o arquivo /infra/teste.http.
 
 
 
