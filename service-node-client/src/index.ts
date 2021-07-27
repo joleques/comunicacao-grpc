@@ -4,7 +4,7 @@ import { AddressInfo } from "net";
 import { ProductServiceClient } from "../../infra/protobuf/produto_grpc_pb";
 import { Empty, Product, ProductRequest } from '../../infra/protobuf/produto_pb';
                    
-import * as grpc from "grpc";
+const grpc = require("../../infra/node_modules/grpc");
 
 const port = process.env.PORT || 8080;
 
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-const credentials: grpc.ChannelCredentials = grpc.credentials.createInsecure();
+const credentials = grpc.credentials.createInsecure();
 
 const client = new ProductServiceClient('localhost:50051', credentials);
 

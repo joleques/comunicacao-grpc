@@ -37,13 +37,24 @@ Quando trabalhamos com gRPC temos um arquivo .proto, que nada mais é do que o c
 
 Como essa POC é em Typescript precisamos ter arquivos .ts e .js para que possamos usar as definições do contrato (arquivo .proto), para isso é necessario realizar os passos abaixo.
 
-- Passo 1: No diretório /infra/scripts-node rodar no terminal comando
+- Passo 1: No diretório /infra rodar no terminal comando
 ```
-node install
+npm install
 ```
 - Passo 2: No diretório /infra/scripts-node rodar no terminal comando
 ```
-./protoc.sh 
+./protoc.sh
+```
+```
+- Passo 3: No diretório /service-node-client rodar no terminal comando
+```
+npm install
+npm run watch
+```
+- Passo 4: No diretório /service-node-server rodar no terminal comando
+```
+npm install
+npm run watch
 ```
 
 Com esses comandos podemos notar que no diretório /infra/protobuf foi gerado alguns arquivos .ts e .js.
