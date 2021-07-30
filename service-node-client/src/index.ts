@@ -66,7 +66,9 @@ app.get(["/node/stream-produtos"], (req: express.Request, res: express.Response)
         })
     })
 
-    produtoStream.on('end', () => {})
+    produtoStream.on('end', () => {
+        console.log("Evento de Fim do stream.....")
+    })
     
     res.send("request ok!");
     
