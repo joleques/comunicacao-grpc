@@ -7,8 +7,21 @@ export class ProductHandler implements IProductServiceServer {
 
     private dataBase: DataBase
 
-    constructor(dataBase: DataBase){
+    constructor(dataBase: DataBase) {
         this.dataBase = dataBase;
+    }
+
+    listStream = (call: grpc.ServerWritableStream<Empty, Product>) => {
+        console.log("Inicio o stream.....");
+        setTimeout(() => {
+            const products = this.dataBase.getAll();
+            products.forEach(async (product) => {
+                console.log('Produto retornado.... ' + product.getId());
+                call.write(product);
+            });
+            console.log("Fim do stream.....");
+            call.end();
+        }, 3000);
     }
 
     save = (req: grpc.ServerUnaryCall<Product>, callback: grpc.sendUnaryData<Product>): void => {

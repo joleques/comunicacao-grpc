@@ -4,12 +4,19 @@ content-type: application/json
 
 {
     "description": "Tomate",
-    "value": "R$ 7,00"
+    "value": "R$ 3,00"
 }
 
 ###
 // busca tds os produtos da API
 GET http://localhost:8080/node/buscar-produtos HTTP/1.1
+content-type: application/json
+
+{}
+
+###
+// busca tds os produtos da API
+GET http://localhost:8080/node/stream-produtos HTTP/1.1
 content-type: application/json
 
 {}

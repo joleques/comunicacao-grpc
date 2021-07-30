@@ -54,6 +54,24 @@ app.get(["/node/buscar-produtos"], (req: express.Request, res: express.Response)
     
 });
 
+
+
+app.get(["/node/stream-produtos"], (req: express.Request, res: express.Response): void => {   
+
+    const produtoStream = client.listStream(new Empty());
+    produtoStream.on('data', (productReturn) => {
+        console.log({
+            id: productReturn.getId(),
+            description: productReturn.getDescription()
+        })
+    })
+
+    produtoStream.on('end', () => {})
+    
+    res.send("request ok!");
+    
+});
+
 app.get(["/node/produto/:produtoId"], (req: express.Request, res: express.Response): void => {   
     const product = new ProductRequest();
     product.setId(req.params.produtoId);

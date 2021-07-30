@@ -18,6 +18,7 @@ message ProductRequest{
 
 service ProductService {
     rpc List (Empty) returns (ProductList) {};
+    rpc ListStream (Empty) returns (stream Product) {};
     rpc Save (Product) returns (Product) {};
     rpc getProduct(ProductRequest) returns (Product){};
 }
