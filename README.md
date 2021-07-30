@@ -1,5 +1,9 @@
 ## Comunicação usando gRPC ###
 
+### Objetivo
+
+Essa POC tem por objetivo testar a comunicação gRPC usando Typescript, para quem não conhece muito esse framework deixei as refêrencias que podem auxiliar no melhor entendimento.
+
 ### O que é gRPC?
 
 É um framework de comunicação entre serviços criado pela Google para aumentar a performace na comunicação entre os microservices.
@@ -25,9 +29,13 @@ As APIs baseadas em RPC são ótimas para ações (ou seja, procedimentos ou com
 
 ## POCS
 
-Foi desenvolvido duas POCS, uma em Typescript (client e server) em outra em Java (client e server) para testar a comuniação entre os serviços usando gRPC. Abaixo como essa comunicação deve ocorrer.
+Foi desenvolvido duas POCS, uma em Typescript (client e server) em outra em Java (ainda não desenvolvida) para testar a comuniação entre os serviços usando gRPC. Abaixo como essa comunicação deve ocorrer.
 
 ![image](./documentacao/arq_services.png)
+
+Nos testes é possivel ver as comunicação:
+- Unary - Unary 
+- Unary - Stream
 
 ### Typescript
 
